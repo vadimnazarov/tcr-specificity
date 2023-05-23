@@ -1,0 +1,19 @@
+RuneClassifier(
+  (fc_net): Sequential(
+    (0): Linear(in_features=32, out_features=1, bias=True)
+    (1): Sigmoid()
+  )
+  (encoder): RuneEncoder(
+    (_cnn_start): Sequential(
+      (0): Conv1d(5, 64, kernel_size=(1,), stride=(1,), padding=(1,))
+      (1): LeakyReLU(negative_slope=0.01)
+      (2): Dropout(p=0.5, inplace=False)
+    )
+    (conv_net): Sequential(
+      (0): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,))
+      (1): LeakyReLU(negative_slope=0.01)
+      (2): Dropout(p=0.5, inplace=False)
+    )
+    (gru): LSTM(64, 16, num_layers=2, batch_first=True, bidirectional=True)
+  )
+)
